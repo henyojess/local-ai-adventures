@@ -1,0 +1,24 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Local results / scratch
+/tmp/
+*.log.local
+/results/
+benchmark-results-*.txt
+
+# Python (for any future analysis scripts)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Don't commit the model weights
+hf-cache/

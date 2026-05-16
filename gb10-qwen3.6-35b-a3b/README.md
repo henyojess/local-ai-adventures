@@ -236,15 +236,17 @@ on aarch64.
 | **unsloth/Qwen3.6-35B-A3B-NVFP4, no MTP (this)** | **44.5 ± 0.1**     | **This repo**                                           |
 | AEON-7 27B dense NVFP4 + DFlash                  | 32 median / 56 pk  | AEON-7 README                                           |
 
-The MTP gap (~11 tok/s) is the expected next optimization. Whether unsloth's
-NVFP4 checkpoint includes a working MTP head is an open question — testing
-this is the next experiment.
+The MTP gap is a checkpoint defect rather than an unrealized
+optimization on this hardware. See
+[`mtp-speculative/`](./mtp-speculative/) for the full analysis.
 
 ## Caveats and open items
 
-- **No MTP yet.** Adding `--speculative-config '{"method":"mtp","num_speculative_tokens":1}'`
-  is the obvious next step. Depends on whether unsloth's quant preserved
-  the MTP head.
+- **MTP tested — non-functional on this checkpoint.**
+  See [`02-mtp-speculative/`](./02-mtp-speculative/). The head loads
+  but acceptance is ~0.04%; enabling spec decode at n=1/2/3 reduces
+  throughput by 32–54%. The published gap to RedHatAI's checkpoint
+  (55.9 tok/s with MTP) is a checkpoint defect, not a tuning issue.
 - **Quality not formally evaluated.** Manual smoke testing shows coherent
   output, but no MMLU/GSM8K/HumanEval results yet.
 - **Concurrency curve not characterized beyond c=2.** Higher concurrency

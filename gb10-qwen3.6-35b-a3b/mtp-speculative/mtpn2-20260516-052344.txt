@@ -1,0 +1,71 @@
+============================================================
+bench.sh v0.3.2  label=mtpn2 output=./bench-results/mtpn2-20260516-052344.txt
+============================================================
+timestamp_utc:            2026-05-16T05:23:44Z
+hostname:                 gx10-d9e5
+gpu:                      NVIDIA GB10, 580.95.05, [N/A]
+endpoint:                 http://localhost:8001
+queried_as:               qwen3.6-35b-a3b
+vllm_version:             0.19.2rc1.dev134+gfe9c3d6c5
+image_ref:                vllm/vllm-openai:cu130-nightly
+image_id:                 sha256:ffa30d66ff5c9346c6389507cc529827fc9934a6d2ee37855934f94fe1061cdc
+num_runs:                 5 (+2 warmup)
+max_tokens:               500
+prompts_hash:             7f3ff79401f3
+spec_drafts@start:        0.0
+spec_draft_tokens@start:  0.0
+spec_accepted@start:      0.0
+============================================================
+
+Warming up...
+prompt             ttft_ms    tpot_ms decode_t/s  total_t/s   tokens
+-------            -------    ------- ----------  ---------   ------
+structured          141.09      45.05      22.20      22.10      500  (run 1)
+structured          138.18      44.84      22.30      22.21      500  (run 2)
+structured          142.29      45.36      22.05      21.95      500  (run 3)
+structured          140.30      44.94      22.25      22.16      500  (run 4)
+structured          141.08      45.42      22.02      21.92      500  (run 5)
+structured          141.08      45.05      22.20      22.10      500  ← median
+structured          142.29      45.42      22.30      22.21      500  ← p95
+
+code_gen            141.27      44.57      22.44      22.34      500  (run 1)
+code_gen            134.23      44.86      22.29      22.21      500  (run 2)
+code_gen            137.70      46.00      21.74      21.65      500  (run 3)
+code_gen            139.25      45.63      21.91      21.82      500  (run 4)
+code_gen            138.91      44.15      22.65      22.55      500  (run 5)
+code_gen            138.91      44.86      22.29      22.21      500  ← median
+code_gen            141.27      46.00      22.65      22.55      500  ← p95
+
+long_context        139.54      44.61      22.42      22.32      500  (run 1)
+long_context        139.13      44.73      22.36      22.26      500  (run 2)
+long_context        137.99      44.93      22.26      22.17      500  (run 3)
+long_context        140.20      45.05      22.20      22.10      500  (run 4)
+long_context        148.14      46.14      21.67      21.58      500  (run 5)
+long_context        139.54      44.93      22.26      22.17      500  ← median
+long_context        148.14      46.14      22.42      22.32      500  ← p95
+
+short_prose         140.00      46.23      21.63      21.54      500  (run 1)
+short_prose         137.36      45.78      21.85      21.76      500  (run 2)
+short_prose         138.03      45.92      21.78      21.69      500  (run 3)
+short_prose         138.96      45.93      21.77      21.68      500  (run 4)
+short_prose         134.84      45.64      21.91      21.83      500  (run 5)
+short_prose         138.03      45.92      21.78      21.69      500  ← median
+short_prose         140.00      46.23      21.91      21.83      500  ← p95
+
+reasoning           147.01      44.58      22.43      22.33      500  (run 1)
+reasoning           138.78      44.46      22.49      22.40      500  (run 2)
+reasoning           146.08      44.26      22.60      22.49      500  (run 3)
+reasoning           156.69      44.39      22.53      22.42      500  (run 4)
+reasoning           139.77      44.47      22.49      22.39      500  (run 5)
+reasoning           146.08      44.46      22.49      22.40      500  ← median
+reasoning           156.69      44.58      22.60      22.49      500  ← p95
+
+
+============================================================
+end_timestamp_utc:        2026-05-16T05:33:47Z
+elapsed_seconds:          603
+spec_drafts_delta:        13209
+spec_draft_tokens_delta:  26418
+spec_accepted_delta:      6
+spec_accept_rate:         0.02%
+============================================================

@@ -126,8 +126,6 @@ The bench script and run commands are in this folder:
   each config
 - [`boot-logs/`](./boot-logs/) — sanitized vLLM startup logs
 - [`bench-results/`](./bench-results/) — raw bench output files
-- [`00-inspection/`](./00-inspection/) — the weight-name inspection
-  script and its output (see methodology footnote below)
 
 Image digest used for every run:
 
@@ -170,7 +168,7 @@ suggests its MTP head is functional.
 
 ## Methodology footnote
 
-Initial weight-name inspection ([`00-inspection/inspect_mtp.py`](./00-inspection/inspect_mtp.py))
+Initial weight-name inspection 
 produced a false negative: searching the single `model.safetensors`
 file for keys matching `mtp` / `nextn` / `next_n` returned zero hits.
 This was wrong. Boot log evidence (vLLM resolving a second architecture

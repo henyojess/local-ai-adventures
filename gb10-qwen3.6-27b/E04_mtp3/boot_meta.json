@@ -1,0 +1,41 @@
+{
+  "experiment": "E04_mtp3",
+  "captured_at_utc": "2026-05-17T12:47:15Z",
+  "container": {
+    "name": "vllm-8001",
+    "id": "999dfead93d6e1352da45b0760cd88b189b17e87afcaa27330b4ce499cd12e12",
+    "id_short": "999dfead93d6",
+    "started_at_utc": "2026-05-17T12:41:12.272471539Z",
+    "boot_duration_seconds": 362
+  },
+  "image": {
+    "ref": "vllm/vllm-openai@sha256:3dbe092ec5b2cef63b6104d33fa75d6ce53a7870962529ada69f78bbbc38e776",
+    "digest": "vllm/vllm-openai@sha256:3dbe092ec5b2cef63b6104d33fa75d6ce53a7870962529ada69f78bbbc38e776",
+    "local_id": "sha256:ffa30d66ff5c9346c6389507cc529827fc9934a6d2ee37855934f94fe1061cdc",
+    "created_at_utc": "2026-04-23T05:23:07.199020192Z"
+  },
+  "vllm": {
+    "version": "0.19.2rc1.dev134+gfe9c3d6c5",
+    "served_model_names": [
+      "coder",
+      "qwen3.6-27b"
+    ],
+    "model_repo": "ocicek/Qwen3.6-27B-NVFP4",
+    "max_model_len": "128K",
+    "gpu_memory_utilization": "0.40",
+    "kv_cache_dtype": "fp8",
+    "max_num_seqs": "2",
+    "max_num_batched_tokens": "8192",
+    "speculative_config": {
+      "method": "mtp",
+      "num_speculative_tokens": 3
+    },
+    "generation_config": "vllm"
+  },
+  "host": {
+    "hostname": "gx10-d9e5",
+    "gpu_name": "NVIDIA GB10",
+    "driver_version": "580.95.05",
+    "gpu_memory_free_mib": null
+  }
+}

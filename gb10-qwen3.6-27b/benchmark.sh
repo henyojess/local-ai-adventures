@@ -40,7 +40,8 @@ MODEL="qwen3.6-27b"
 LABEL="unlabeled"
 IMAGE_DIGEST_OVERRIDE=""
 MAX_TOKENS=500
-RESULTS_DIR="./benchmak-results"
+RESULTS_DIR="./benchmark-results"
+OUTPUT_FILE_OVERRIDE=""
 WARMUP_RUNS=2
 SCRIPT_VERSION="0.3.4"
 

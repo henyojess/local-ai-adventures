@@ -44,7 +44,7 @@ exec docker run -d --name "$CONTAINER_NAME" \
   --ulimit memlock=-1:-1 \
   --ulimit stack=67108864:67108864 \
   -e PYTORCH_CUDA_ALLOC_CONF="expandable_segments:True" \
-  -e HF_HOME=/root/.cache/huggingface \  
+  -e HF_HOME=/root/.cache/huggingface \
   -v "$HOME/.cache/huggingface:/root/.cache/huggingface" \
   -v "$HOME/.cache/vllm:/root/.cache/vllm" \
   -v "$HOME/.cache/torch:/root/.cache/torch" \

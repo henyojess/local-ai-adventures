@@ -27,6 +27,9 @@ set -uo pipefail
 # Hardcoded matrix. To add E02-E04 later, just extend this array.
 DEFAULT_MATRIX=(
   "E01_no_mtp"
+  "E02_mtp1"
+  "E03_mtp2"
+  "E04_mtp3"
 )
 
 # Pinned image digest the experiments are expected to run with.
@@ -394,8 +397,15 @@ run_one_experiment() {
 
 # ── main ─────────────────────────────────────────────────────────────────────
 
-# Truncate the log file on each invocation.
-: > "$LOG_FILE"
+# Append-mode with session header. Re-running for a subset of experiments
+# (e.g. `./run_all_experiments.sh E03_mtp2`) preserves logs from prior runs;
+# the session header makes it obvious where each invocation starts.
+{
+  echo ""
+  echo "================================================================"
+  echo "session start: $(ts) | argv: ${*:-<no args, default matrix>}"
+  echo "================================================================"
+} >> "$LOG_FILE"
 
 # Select experiments to run.
 if (( $# > 0 )); then

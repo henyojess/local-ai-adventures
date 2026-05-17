@@ -12,10 +12,16 @@
 #   --image-digest STR  Override auto-detected RepoDigest. Pass a fully-qualified
 #                       form (e.g. vllm/vllm-openai@sha256:...) for reproducibility.
 #   --max-tokens N      Max output tokens per request (default: 500)
-#   --results-dir DIR   Output directory (default: ./bench-results)
+#   --results-dir DIR   Output directory (default: ./bench-results). Ignored if --output-file is set.
+#   --output-file PATH  Write output to exactly this path (overrides --results-dir/--label/timestamp
+#                       naming entirely). Used by the experiment orchestrator to write canonical
+#                       per-experiment paths like E01_no_mtp/benchmark_result.txt.
 #   -h, --help          Show this help
 #
 # Changelog:
+#   v0.3.4: Add --output-file flag for canonical-path writes. When set, bypasses
+#           the ${RESULTS_DIR}/${LABEL}-${RUN_TS}.txt naming scheme entirely.
+#           Strictly additive: with the flag unset, behavior identical to v0.3.3.
 #   v0.3.3: Replace image_id (local content hash, not portable) with image_digest
 #           (registry RepoDigest, e.g. vllm/vllm-openai@sha256:...). The latter is
 #           the only identifier that lets a future reader re-pull the exact image.
@@ -36,7 +42,7 @@ IMAGE_DIGEST_OVERRIDE=""
 MAX_TOKENS=500
 RESULTS_DIR="./benchmak-results"
 WARMUP_RUNS=2
-SCRIPT_VERSION="0.3.3"
+SCRIPT_VERSION="0.3.4"
 
 usage() {
   sed -n '2,/^$/p' "$0" | sed 's/^# \{0,1\}//'
@@ -59,6 +65,7 @@ while [[ $# -gt 0 ]]; do
     --image-digest) IMAGE_DIGEST_OVERRIDE="$2"; shift 2 ;;
     --max-tokens)   MAX_TOKENS="$2"; shift 2 ;;
     --results-dir)  RESULTS_DIR="$2"; shift 2 ;;
+    --output-file)  OUTPUT_FILE_OVERRIDE="$2"; shift 2 ;;
     -h|--help)      usage 0 ;;
     *) echo "Unknown option: $1" >&2; usage 1 ;;
   esac
@@ -78,8 +85,15 @@ PROMPTS_HASH=$(for k in "${!PROMPTS[@]}"; do echo "$k:${PROMPTS[$k]}"; done | so
 
 # ── output redirect (bulletproof) ─────────────────────────────────────────────
 RUN_TS=$(date -u +"%Y%m%d-%H%M%S")
-mkdir -p "$RESULTS_DIR"
-OUT_FILE="${RESULTS_DIR}/${LABEL}-${RUN_TS}.txt"
+if [[ -n "$OUTPUT_FILE_OVERRIDE" ]]; then
+  # Canonical-path mode: write to exactly the path the caller specified.
+  # Ensure the parent directory exists; do not touch RESULTS_DIR at all.
+  OUT_FILE="$OUTPUT_FILE_OVERRIDE"
+  mkdir -p "$(dirname "$OUT_FILE")"
+else
+  mkdir -p "$RESULTS_DIR"
+  OUT_FILE="${RESULTS_DIR}/${LABEL}-${RUN_TS}.txt"
+fi
 exec > >(tee "$OUT_FILE")
 TEE_PID=$!
 exec 2>&1

@@ -69,3 +69,25 @@
 [2026-05-17T12:57:11Z] [ORCHESTRATOR] [summary] matrix complete
 [2026-05-17T12:57:11Z] [ORCHESTRATOR] [summary] E03_mtp2: PASS
 [2026-05-17T12:57:11Z] [ORCHESTRATOR] [summary] E04_mtp3: PASS
+
+================================================================
+session start: 2026-05-17T13:37:33Z | argv: E05_mtp4
+================================================================
+[2026-05-17T13:37:33Z] [ORCHESTRATOR] [start] matrix=E05_mtp4 project=/home/ai-runtime/workspace/local-ai-adventures/gb10-qwen3.6-27b
+[2026-05-17T13:37:33Z] [E05_mtp4] [start] begin experiment
+[2026-05-17T13:37:33Z] [E05_mtp4] [nvidia_smi_pre] capturing GPU state
+[2026-05-17T13:37:33Z] [E05_mtp4] [launch] invoking /home/ai-runtime/workspace/local-ai-adventures/gb10-qwen3.6-27b/E05_mtp4/run_vllm.sh
+[2026-05-17T13:37:34Z] [E05_mtp4] [health_poll] waiting for /health (timeout=420s, interval=5s)
+[2026-05-17T13:43:35Z] [E05_mtp4] [health_poll] /health returned 200 after ~361s
+[2026-05-17T13:43:35Z] [E05_mtp4] [test_completion] sending 1-token probe
+[2026-05-17T13:43:36Z] [E05_mtp4] [test_completion] probe ok
+[2026-05-17T13:43:36Z] [E05_mtp4] [boot_log] capturing docker logs vllm-8001
+[2026-05-17T13:43:36Z] [E05_mtp4] [boot_meta] synthesizing from docker inspect + vLLM endpoints
+[2026-05-17T13:43:36Z] [E05_mtp4] [metrics_start] snapshotting /metrics
+[2026-05-17T13:43:36Z] [E05_mtp4] [bench] running benchmark.sh (runs=5, max_tokens=500)
+[2026-05-17T13:53:15Z] [E05_mtp4] [metrics_end] snapshotting /metrics
+[2026-05-17T13:53:16Z] [E05_mtp4] [parse] parsing bench output → JSON + README
+[2026-05-17T13:53:16Z] [E05_mtp4] [teardown] removing container vllm-8001
+[2026-05-17T13:53:17Z] [E05_mtp4] [done] status=PASS
+[2026-05-17T13:53:17Z] [ORCHESTRATOR] [summary] matrix complete
+[2026-05-17T13:53:17Z] [ORCHESTRATOR] [summary] E05_mtp4: PASS

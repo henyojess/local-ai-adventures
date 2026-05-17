@@ -39,13 +39,12 @@ sleep 1
 exec docker run -d --name "$CONTAINER_NAME" \
   --cpuset-cpus="10-19" \
   --gpus all \
-  -p 8001:8001 \
+  --network=host \
   --ipc=host \
   --ulimit memlock=-1:-1 \
   --ulimit stack=67108864:67108864 \
   -e PYTORCH_CUDA_ALLOC_CONF="expandable_segments:True" \
-  -e HF_HOME=/root/.cache/huggingface \
-  -e TOKENIZERS_PARALLELISM=false \
+  -e HF_HOME=/root/.cache/huggingface \  
   -v "$HOME/.cache/huggingface:/root/.cache/huggingface" \
   -v "$HOME/.cache/vllm:/root/.cache/vllm" \
   -v "$HOME/.cache/torch:/root/.cache/torch" \
@@ -59,7 +58,7 @@ exec docker run -d --name "$CONTAINER_NAME" \
     --enable-auto-tool-choice \
     --tool-call-parser qwen3_coder \
     --trust-remote-code \
-    --generation-config auto \
+    --generation-config vllm \
     --max-num-batched-tokens 8192 \
     --kv-cache-dtype fp8 \
     --max-model-len 128K \

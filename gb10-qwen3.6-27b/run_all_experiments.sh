@@ -166,8 +166,24 @@ from datetime import datetime, timezone
 args = json.loads(os.environ.get("CMD_ARGS_JSON", "[]"))
 
 # args is the list passed to the vLLM entrypoint after the image.
-# First positional element (if present) is the model repo; the rest are flags.
-model_repo = args[0] if args and not args[0].startswith("--") else "unknown"
+# The vLLM image's CMD is "serve", so .Args looks like:
+#   ["serve", "ocicek/Qwen3.6-27B-NVFP4", "--served-model-name", "coder", ...]
+# We skip "serve" (the subcommand) and take the next non-flag positional
+# as the model repo.
+def find_model_repo(args):
+    for i, a in enumerate(args):
+        if a == "serve":
+            continue
+        if a.startswith("--"):
+            continue
+        # First positional that isn't the "serve" subcommand wins.
+        # Guard against this being a value for the previous flag.
+        if i > 0 and args[i - 1].startswith("--") and args[i - 1] != "serve":
+            continue
+        return a
+    return "unknown"
+
+model_repo = find_model_repo(args)
 
 def flag_value(name):
     """Return the value of --name from args, or None if absent."""
@@ -369,7 +385,7 @@ run_one_experiment() {
 
   # ── phase 12: teardown ──
   log_phase "$exp" "teardown" "removing container ${CONTAINER_NAME}"
-  docker rm -f "$CONTAINER_NAME" 2>/dev/null || \
+  docker rm -f "$CONTAINER_NAME" >/dev/null 2>&1 || \
     log_phase "$exp" "teardown" "warning: docker rm returned nonzero"
 
   log_phase "$exp" "done" "status=${EXP_STATUSES[$exp]}"

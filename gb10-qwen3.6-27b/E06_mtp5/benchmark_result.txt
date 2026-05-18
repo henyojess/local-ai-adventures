@@ -1,0 +1,69 @@
+============================================================
+benchmark.sh v0.3.4 label=E06_mtp5 output=/home/ai-runtime/workspace/local-ai-adventures/gb10-qwen3.6-27b/E06_mtp5/benchmark_result.txt
+============================================================
+timestamp_utc:           2026-05-17T14:20:21Z
+hostname:                gx10-d9e5
+gpu:                     NVIDIA GB10, 580.95.05, [N/A]
+endpoint:                http://localhost:8001
+queried_as:              qwen3.6-27b
+vllm_version:            0.19.2rc1.dev134+gfe9c3d6c5
+image_ref:               vllm/vllm-openai@sha256:3dbe092ec5b2cef63b6104d33fa75d6ce53a7870962529ada69f78bbbc38e776
+image_digest:            vllm/vllm-openai@sha256:3dbe092ec5b2cef63b6104d33fa75d6ce53a7870962529ada69f78bbbc38e776
+num_runs:                5 (+2 warmup)
+max_tokens:              500
+prompts_hash:            7f3ff79401f3
+spec_drafts@start:       0.0
+spec_draft_tokens@start: 0.0
+spec_accepted@start:     0.0
+============================================================
+Warming up...
+prompt             ttft_ms    tpot_ms decode_t/s  total_t/s   tokens
+-------            -------    ------- ----------  ---------   ------
+structured          369.03     185.98      23.54      23.18      500 (run 1)
+structured          334.77     186.24      23.50      23.18      500 (run 2)
+structured          334.73     185.36      23.61      23.29      500 (run 3)
+structured          334.88     186.04      23.53      23.21      500 (run 4)
+structured          335.96     186.01      23.53      23.21      500 (run 5)
+structured          334.88     186.01      23.53      23.21      500 ← median
+structured          369.03     186.24      23.61      23.29      500 ← p95
+
+code_gen            328.89     185.74      26.86      26.45      500 (run 1)
+code_gen            330.43     186.26      26.79      26.38      500 (run 2)
+code_gen            331.68     186.34      26.78      26.36      500 (run 3)
+code_gen            335.68     185.66      26.88      26.45      500 (run 4)
+code_gen            333.35     186.20      26.80      26.38      500 (run 5)
+code_gen            331.68     186.20      26.80      26.38      500 ← median
+code_gen            335.68     186.34      26.88      26.45      500 ← p95
+
+long_context        338.01     184.70      19.86      19.64      500 (run 1)
+long_context        334.19     185.13      19.82      19.60      500 (run 2)
+long_context        365.26     184.41      19.90      19.65      500 (run 3)
+long_context        339.08     184.92      19.84      19.62      500 (run 4)
+long_context        336.45     185.18      19.81      19.59      500 (run 5)
+long_context        338.01     184.92      19.84      19.62      500 ← median
+long_context        365.26     185.18      19.90      19.65      500 ← p95
+
+short_prose         329.29     185.78      19.46      19.26      500 (run 1)
+short_prose         327.79     185.91      19.45      19.24      500 (run 2)
+short_prose         332.49     185.79      19.46      19.25      500 (run 3)
+short_prose         330.04     185.67      19.47      19.27      500 (run 4)
+short_prose         327.83     185.83      19.46      19.25      500 (run 5)
+short_prose         329.29     185.79      19.46      19.25      500 ← median
+short_prose         332.49     185.91      19.47      19.27      500 ← p95
+
+reasoning           341.10     184.72      24.56      24.20      500 (run 1)
+reasoning           333.76     186.37      24.34      24.00      500 (run 2)
+reasoning           368.31     184.95      24.53      24.14      500 (run 3)
+reasoning           336.18     186.18      24.36      24.02      500 (run 4)
+reasoning           336.63     185.81      24.41      24.07      500 (run 5)
+reasoning           336.63     185.81      24.41      24.07      500 ← median
+reasoning           368.31     186.37      24.56      24.20      500 ← p95
+
+============================================================
+end_timestamp_utc:       2026-05-17T14:30:16Z
+elapsed_seconds:         595
+spec_drafts_delta:       3136
+spec_draft_tokens_delta: 15680
+spec_accepted_delta:     10030
+spec_accept_rate:        63.97%
+============================================================

@@ -113,3 +113,160 @@ session start: 2026-05-17T14:14:27Z | argv: E06_mtp5
 [2026-05-17T14:30:17Z] [E06_mtp5] [done] status=PASS
 [2026-05-17T14:30:17Z] [ORCHESTRATOR] [summary] matrix complete
 [2026-05-17T14:30:17Z] [ORCHESTRATOR] [summary] E06_mtp5: PASS
+
+================================================================
+session start: 2026-05-18T05:04:45Z | argv: E07_fp8_quant_nomtp
+================================================================
+[2026-05-18T05:04:45Z] [ORCHESTRATOR] [start] matrix=E07_fp8_quant_nomtp project=/home/ai-runtime/workspace/local-ai-adventures/gb10-qwen3.6-27b
+[2026-05-18T05:04:45Z] [E07_fp8_quant_nomtp] [start] begin experiment
+[2026-05-18T05:04:45Z] [E07_fp8_quant_nomtp] [nvidia_smi_pre] capturing GPU state
+[2026-05-18T05:04:45Z] [E07_fp8_quant_nomtp] [launch] invoking /home/ai-runtime/workspace/local-ai-adventures/gb10-qwen3.6-27b/E07_fp8_quant_nomtp/run_vllm.sh
+[2026-05-18T05:04:46Z] [E07_fp8_quant_nomtp] [health_poll] waiting for /health (timeout=420s, interval=5s)
+[2026-05-18T05:10:17Z] [E07_fp8_quant_nomtp] [health_poll] /health returned 200 after ~331s
+[2026-05-18T05:10:17Z] [E07_fp8_quant_nomtp] [test_completion] sending 1-token probe
+[2026-05-18T05:10:17Z] [E07_fp8_quant_nomtp] [test_completion] probe ok
+[2026-05-18T05:10:17Z] [E07_fp8_quant_nomtp] [boot_log] capturing docker logs vllm-8001
+[2026-05-18T05:10:17Z] [E07_fp8_quant_nomtp] [boot_meta] synthesizing from docker inspect + vLLM endpoints
+[2026-05-18T05:10:18Z] [E07_fp8_quant_nomtp] [metrics_start] snapshotting /metrics
+[2026-05-18T05:10:18Z] [E07_fp8_quant_nomtp] [bench] running benchmark.sh (runs=5, max_tokens=500)
+[2026-05-18T05:38:02Z] [E07_fp8_quant_nomtp] [metrics_end] snapshotting /metrics
+[2026-05-18T05:38:02Z] [E07_fp8_quant_nomtp] [parse] parsing bench output → JSON + README
+[2026-05-18T05:38:02Z] [E07_fp8_quant_nomtp] [teardown] removing container vllm-8001
+[2026-05-18T05:38:04Z] [E07_fp8_quant_nomtp] [done] status=PASS
+[2026-05-18T05:38:04Z] [ORCHESTRATOR] [summary] matrix complete
+[2026-05-18T05:38:04Z] [ORCHESTRATOR] [summary] E07_fp8_quant_nomtp: PASS
+
+
+================================================================
+session start: 2026-05-23T10:49:51Z | argv: E08_fp8_quant_mtp1
+================================================================
+[2026-05-23T10:49:51Z] [ORCHESTRATOR] [start] matrix=E08_fp8_quant_mtp1 project=/home/ai-runtime/workspace/local-ai-adventures/gb10-qwen3.6-27b
+[2026-05-23T10:49:51Z] [E08_fp8_quant_mtp1] [start] begin experiment
+[2026-05-23T10:49:51Z] [E08_fp8_quant_mtp1] [nvidia_smi_pre] capturing GPU state
+[2026-05-23T10:49:51Z] [E08_fp8_quant_mtp1] [launch] invoking /home/ai-runtime/workspace/local-ai-adventures/gb10-qwen3.6-27b/E08_fp8_quant_mtp1/run_vllm.sh
+[2026-05-23T10:50:05Z] [E08_fp8_quant_mtp1] [health_poll] waiting for /health (timeout=420s, interval=5s)
+[2026-05-23T10:50:05Z] [E08_fp8_quant_mtp1] [health_poll] /health returned 200 after ~0s
+[2026-05-23T10:50:05Z] [E08_fp8_quant_mtp1] [test_completion] sending 1-token probe
+[2026-05-23T10:50:06Z] [E08_fp8_quant_mtp1] [test_completion] probe ok
+[2026-05-23T10:50:06Z] [E08_fp8_quant_mtp1] [boot_log] capturing docker logs vllm-8001
+[2026-05-23T10:50:06Z] [E08_fp8_quant_mtp1] [boot_meta] synthesizing from docker inspect + vLLM endpoints
+[2026-05-23T10:50:07Z] [E08_fp8_quant_mtp1] [metrics_start] snapshotting /metrics
+[2026-05-23T10:50:07Z] [E08_fp8_quant_mtp1] [bench] running benchmark.sh (runs=5, max_tokens=500)
+[2026-05-23T10:51:53Z] [ORCHESTRATOR] [interrupted] caught signal, tearing down vllm-8001
+
+================================================================
+session start: 2026-05-23T11:17:52Z | argv: E08_fp8_quant_mtp1
+================================================================
+[2026-05-23T11:17:52Z] [ORCHESTRATOR] [start] matrix=E08_fp8_quant_mtp1 project=/home/ai-runtime/workspace/local-ai-adventures/gb10-qwen3.6-27b
+[2026-05-23T11:17:52Z] [E08_fp8_quant_mtp1] [start] begin experiment
+[2026-05-23T11:17:52Z] [E08_fp8_quant_mtp1] [nvidia_smi_pre] capturing GPU state
+[2026-05-23T11:17:52Z] [E08_fp8_quant_mtp1] [launch] invoking /home/ai-runtime/workspace/local-ai-adventures/gb10-qwen3.6-27b/E08_fp8_quant_mtp1/run_vllm.sh
+[2026-05-23T11:18:06Z] [E08_fp8_quant_mtp1] [health_poll] waiting for /health (timeout=420s, interval=5s)
+[2026-05-23T11:24:17Z] [E08_fp8_quant_mtp1] [health_poll] /health returned 200 after ~371s
+[2026-05-23T11:24:17Z] [E08_fp8_quant_mtp1] [test_completion] sending 1-token probe
+[2026-05-23T11:24:19Z] [E08_fp8_quant_mtp1] [test_completion] probe ok
+[2026-05-23T11:24:19Z] [E08_fp8_quant_mtp1] [boot_log] capturing docker logs vllm-8000
+[2026-05-23T11:24:19Z] [E08_fp8_quant_mtp1] [boot_meta] synthesizing from docker inspect + vLLM endpoints
+[2026-05-23T11:24:19Z] [E08_fp8_quant_mtp1] [metrics_start] snapshotting /metrics
+[2026-05-23T11:24:19Z] [E08_fp8_quant_mtp1] [bench] running benchmark.sh (runs=5, max_tokens=500)
+[2026-05-23T11:44:26Z] [E08_fp8_quant_mtp1] [metrics_end] snapshotting /metrics
+[2026-05-23T11:44:26Z] [E08_fp8_quant_mtp1] [parse] parsing bench output → JSON + README
+[2026-05-23T11:44:26Z] [E08_fp8_quant_mtp1] [teardown] removing container vllm-8000
+[2026-05-23T11:44:30Z] [E08_fp8_quant_mtp1] [done] status=PASS
+[2026-05-23T11:44:30Z] [ORCHESTRATOR] [summary] matrix complete
+[2026-05-23T11:44:30Z] [ORCHESTRATOR] [summary] E08_fp8_quant_mtp1: PASS
+
+================================================================
+session start: 2026-05-23T12:25:08Z | argv: E08_fp8_quant_mtp1
+================================================================
+[2026-05-23T12:25:08Z] [ORCHESTRATOR] [start] matrix=E08_fp8_quant_mtp1 project=/home/ai-runtime/workspace/local-ai-adventures/gb10-qwen3.6-27b
+[2026-05-23T12:25:08Z] [E08_fp8_quant_mtp1] [start] begin experiment
+[2026-05-23T12:25:08Z] [E08_fp8_quant_mtp1] [nvidia_smi_pre] capturing GPU state
+[2026-05-23T12:25:08Z] [E08_fp8_quant_mtp1] [launch] invoking /home/ai-runtime/workspace/local-ai-adventures/gb10-qwen3.6-27b/E08_fp8_quant_mtp1/run_vllm.sh
+[2026-05-23T12:25:22Z] [E08_fp8_quant_mtp1] [health_poll] waiting for /health (timeout=600s, interval=5s)
+[2026-05-23T12:31:37Z] [E08_fp8_quant_mtp1] [health_poll] /health returned 200 after ~375s
+[2026-05-23T12:31:37Z] [E08_fp8_quant_mtp1] [test_completion] sending 1-token probe
+[2026-05-23T12:31:39Z] [E08_fp8_quant_mtp1] [test_completion] probe ok
+[2026-05-23T12:31:39Z] [E08_fp8_quant_mtp1] [boot_log] capturing docker logs vllm-8000
+[2026-05-23T12:31:39Z] [E08_fp8_quant_mtp1] [boot_meta] synthesizing from docker inspect + vLLM endpoints
+[2026-05-23T12:31:39Z] [E08_fp8_quant_mtp1] [metrics_start] snapshotting /metrics
+[2026-05-23T12:31:39Z] [E08_fp8_quant_mtp1] [bench] running benchmark.sh (runs=5, max_tokens=500)
+[2026-05-23T12:50:33Z] [E08_fp8_quant_mtp1] [metrics_end] snapshotting /metrics
+[2026-05-23T12:50:33Z] [E08_fp8_quant_mtp1] [parse] parsing bench output → JSON + README
+[2026-05-23T12:50:33Z] [E08_fp8_quant_mtp1] [teardown] removing container vllm-8000
+[2026-05-23T12:50:34Z] [E08_fp8_quant_mtp1] [done] status=PASS
+[2026-05-23T12:50:34Z] [ORCHESTRATOR] [summary] matrix complete
+[2026-05-23T12:50:34Z] [ORCHESTRATOR] [summary] E08_fp8_quant_mtp1: PASS
+
+================================================================
+session start: 2026-05-23T12:59:02Z | argv: E09_fp8_quant_mtp2 E10_fp8_quant_mtp3 E11_fp8_quant_mtp4 E12_fp8_quant_mtp5
+================================================================
+[2026-05-23T12:59:02Z] [ORCHESTRATOR] [start] matrix=E09_fp8_quant_mtp2,E10_fp8_quant_mtp3,E11_fp8_quant_mtp4,E12_fp8_quant_mtp5 project=/home/ai-runtime/workspace/local-ai-adventures/gb10-qwen3.6-27b
+[2026-05-23T12:59:02Z] [E09_fp8_quant_mtp2] [start] begin experiment
+[2026-05-23T12:59:02Z] [E09_fp8_quant_mtp2] [nvidia_smi_pre] capturing GPU state
+[2026-05-23T12:59:03Z] [E09_fp8_quant_mtp2] [launch] invoking /home/ai-runtime/workspace/local-ai-adventures/gb10-qwen3.6-27b/E09_fp8_quant_mtp2/run_vllm.sh
+[2026-05-23T12:59:16Z] [E09_fp8_quant_mtp2] [health_poll] waiting for /health (timeout=600s, interval=5s)
+[2026-05-23T13:08:42Z] [E09_fp8_quant_mtp2] [health_poll] /health returned 200 after ~566s
+[2026-05-23T13:08:42Z] [E09_fp8_quant_mtp2] [test_completion] sending 1-token probe
+[2026-05-23T13:08:44Z] [E09_fp8_quant_mtp2] [test_completion] probe ok
+[2026-05-23T13:08:44Z] [E09_fp8_quant_mtp2] [boot_log] capturing docker logs vllm-8000
+[2026-05-23T13:08:44Z] [E09_fp8_quant_mtp2] [boot_meta] synthesizing from docker inspect + vLLM endpoints
+[2026-05-23T13:08:44Z] [E09_fp8_quant_mtp2] [metrics_start] snapshotting /metrics
+[2026-05-23T13:08:44Z] [E09_fp8_quant_mtp2] [bench] running benchmark.sh (runs=5, max_tokens=500)
+[2026-05-23T13:22:37Z] [E09_fp8_quant_mtp2] [metrics_end] snapshotting /metrics
+[2026-05-23T13:22:37Z] [E09_fp8_quant_mtp2] [parse] parsing bench output → JSON + README
+[2026-05-23T13:22:37Z] [E09_fp8_quant_mtp2] [teardown] removing container vllm-8000
+[2026-05-23T13:22:38Z] [E09_fp8_quant_mtp2] [done] status=PASS
+[2026-05-23T13:22:38Z] [ORCHESTRATOR] [cooldown] sleeping 60s before next experiment
+[2026-05-23T13:23:38Z] [E10_fp8_quant_mtp3] [start] begin experiment
+[2026-05-23T13:23:38Z] [E10_fp8_quant_mtp3] [nvidia_smi_pre] capturing GPU state
+[2026-05-23T13:23:38Z] [E10_fp8_quant_mtp3] [launch] invoking /home/ai-runtime/workspace/local-ai-adventures/gb10-qwen3.6-27b/E10_fp8_quant_mtp3/run_vllm.sh
+[2026-05-23T13:23:51Z] [E10_fp8_quant_mtp3] [health_poll] waiting for /health (timeout=600s, interval=5s)
+[2026-05-23T13:30:47Z] [E10_fp8_quant_mtp3] [health_poll] /health returned 200 after ~416s
+[2026-05-23T13:30:47Z] [E10_fp8_quant_mtp3] [test_completion] sending 1-token probe
+[2026-05-23T13:30:49Z] [E10_fp8_quant_mtp3] [test_completion] probe ok
+[2026-05-23T13:30:49Z] [E10_fp8_quant_mtp3] [boot_log] capturing docker logs vllm-8000
+[2026-05-23T13:30:49Z] [E10_fp8_quant_mtp3] [boot_meta] synthesizing from docker inspect + vLLM endpoints
+[2026-05-23T13:30:49Z] [E10_fp8_quant_mtp3] [metrics_start] snapshotting /metrics
+[2026-05-23T13:30:49Z] [E10_fp8_quant_mtp3] [bench] running benchmark.sh (runs=5, max_tokens=500)
+[2026-05-23T13:43:09Z] [E10_fp8_quant_mtp3] [metrics_end] snapshotting /metrics
+[2026-05-23T13:43:09Z] [E10_fp8_quant_mtp3] [parse] parsing bench output → JSON + README
+[2026-05-23T13:43:09Z] [E10_fp8_quant_mtp3] [teardown] removing container vllm-8000
+[2026-05-23T13:43:10Z] [E10_fp8_quant_mtp3] [done] status=PASS
+[2026-05-23T13:43:10Z] [ORCHESTRATOR] [cooldown] sleeping 60s before next experiment
+[2026-05-23T13:44:10Z] [E11_fp8_quant_mtp4] [start] begin experiment
+[2026-05-23T13:44:10Z] [E11_fp8_quant_mtp4] [nvidia_smi_pre] capturing GPU state
+[2026-05-23T13:44:10Z] [E11_fp8_quant_mtp4] [launch] invoking /home/ai-runtime/workspace/local-ai-adventures/gb10-qwen3.6-27b/E11_fp8_quant_mtp4/run_vllm.sh
+[2026-05-23T13:44:23Z] [E11_fp8_quant_mtp4] [health_poll] waiting for /health (timeout=600s, interval=5s)
+[2026-05-23T13:51:34Z] [E11_fp8_quant_mtp4] [health_poll] /health returned 200 after ~431s
+[2026-05-23T13:51:34Z] [E11_fp8_quant_mtp4] [test_completion] sending 1-token probe
+[2026-05-23T13:51:36Z] [E11_fp8_quant_mtp4] [test_completion] probe ok
+[2026-05-23T13:51:36Z] [E11_fp8_quant_mtp4] [boot_log] capturing docker logs vllm-8000
+[2026-05-23T13:51:36Z] [E11_fp8_quant_mtp4] [boot_meta] synthesizing from docker inspect + vLLM endpoints
+[2026-05-23T13:51:36Z] [E11_fp8_quant_mtp4] [metrics_start] snapshotting /metrics
+[2026-05-23T13:51:36Z] [E11_fp8_quant_mtp4] [bench] running benchmark.sh (runs=5, max_tokens=500)
+[2026-05-23T14:03:15Z] [E11_fp8_quant_mtp4] [metrics_end] snapshotting /metrics
+[2026-05-23T14:03:15Z] [E11_fp8_quant_mtp4] [parse] parsing bench output → JSON + README
+[2026-05-23T14:03:15Z] [E11_fp8_quant_mtp4] [teardown] removing container vllm-8000
+[2026-05-23T14:03:16Z] [E11_fp8_quant_mtp4] [done] status=PASS
+[2026-05-23T14:03:16Z] [ORCHESTRATOR] [cooldown] sleeping 60s before next experiment
+[2026-05-23T14:04:16Z] [E12_fp8_quant_mtp5] [start] begin experiment
+[2026-05-23T14:04:16Z] [E12_fp8_quant_mtp5] [nvidia_smi_pre] capturing GPU state
+[2026-05-23T14:04:16Z] [E12_fp8_quant_mtp5] [launch] invoking /home/ai-runtime/workspace/local-ai-adventures/gb10-qwen3.6-27b/E12_fp8_quant_mtp5/run_vllm.sh
+[2026-05-23T14:04:29Z] [E12_fp8_quant_mtp5] [health_poll] waiting for /health (timeout=600s, interval=5s)
+[2026-05-23T14:10:45Z] [E12_fp8_quant_mtp5] [health_poll] /health returned 200 after ~376s
+[2026-05-23T14:10:45Z] [E12_fp8_quant_mtp5] [test_completion] sending 1-token probe
+[2026-05-23T14:10:47Z] [E12_fp8_quant_mtp5] [test_completion] probe ok
+[2026-05-23T14:10:47Z] [E12_fp8_quant_mtp5] [boot_log] capturing docker logs vllm-8000
+[2026-05-23T14:10:47Z] [E12_fp8_quant_mtp5] [boot_meta] synthesizing from docker inspect + vLLM endpoints
+[2026-05-23T14:10:47Z] [E12_fp8_quant_mtp5] [metrics_start] snapshotting /metrics
+[2026-05-23T14:10:47Z] [E12_fp8_quant_mtp5] [bench] running benchmark.sh (runs=5, max_tokens=500)
+[2026-05-23T14:22:26Z] [E12_fp8_quant_mtp5] [metrics_end] snapshotting /metrics
+[2026-05-23T14:22:26Z] [E12_fp8_quant_mtp5] [parse] parsing bench output → JSON + README
+[2026-05-23T14:22:26Z] [E12_fp8_quant_mtp5] [teardown] removing container vllm-8000
+[2026-05-23T14:22:28Z] [E12_fp8_quant_mtp5] [done] status=PASS
+[2026-05-23T14:22:28Z] [ORCHESTRATOR] [summary] matrix complete
+[2026-05-23T14:22:28Z] [ORCHESTRATOR] [summary] E09_fp8_quant_mtp2: PASS
+[2026-05-23T14:22:28Z] [ORCHESTRATOR] [summary] E10_fp8_quant_mtp3: PASS
+[2026-05-23T14:22:28Z] [ORCHESTRATOR] [summary] E11_fp8_quant_mtp4: PASS
+[2026-05-23T14:22:28Z] [ORCHESTRATOR] [summary] E12_fp8_quant_mtp5: PASS

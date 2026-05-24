@@ -38,14 +38,14 @@ DEFAULT_MATRIX=(
 PINNED_DIGEST="vllm/vllm-openai@sha256:3dbe092ec5b2cef63b6104d33fa75d6ce53a7870962529ada69f78bbbc38e776"
 
 MODEL_NAME="qwen3.6-27b"            # what the bench queries (matches --served-model-name)
-PORT="8001"
+PORT="8000"
 ENDPOINT="http://localhost:${PORT}"
-CONTAINER_NAME="vllm-8001"
+CONTAINER_NAME="vllm-8000"
 
 BENCH_RUNS=5
 BENCH_MAX_TOKENS=500
 
-HEALTH_TIMEOUT_SECONDS=420          # 7 min: cold-boot E01 was 318s, leaves headroom
+HEALTH_TIMEOUT_SECONDS=600          # 7 min: cold-boot E01 was 318s, leaves headroom
 HEALTH_POLL_INTERVAL=5
 INTER_EXPERIMENT_SLEEP=60
 
@@ -231,7 +231,7 @@ doc = {
     "experiment": os.environ["EXPERIMENT"],
     "captured_at_utc": captured,
     "container": {
-        "name": "vllm-8001",
+        "name": "vllm-8000",
         "id": os.environ["CONTAINER_ID"],
         "id_short": os.environ["CONTAINER_ID"][:12],
         "started_at_utc": started,

@@ -35,7 +35,7 @@ set -euo pipefail
 # ── defaults ──────────────────────────────────────────────────────────────────
 NUM_RUNS=5
 HOST="localhost"
-PORT=8001
+PORT=8000
 MODEL="qwen3.6-27b"
 LABEL="unlabeled"
 IMAGE_DIGEST_OVERRIDE=""
